@@ -16,8 +16,12 @@ const App = () => {
   }, []);
 
   const addRecord = (newRecord) => {
-    axios.post('http://localhost:5000/records', newRecord).then(response => {
-      setRecords([response.data, ...records]);
+    axios.post('http://localhost:5000/records', newRecord)
+    .then(response => {
+        setRecords([response.data, ...records].sort());
+      })
+    .catch(error => {
+      console.error('Error creating record:', error);
     });
   };
 

@@ -9,7 +9,8 @@ const RecordSchema = new mongoose.Schema({
   actionType: { type: String, required: true },
   actionName: { type: String, required: true },
   status: { type: String, required: true },
-  Impact: { type: String, required: true }
+  Impact: { type: String, required: true },
+  timestamp: { type: Date, default: Date.now }
 });
 
 const Record = mongoose.model('Record', RecordSchema);
