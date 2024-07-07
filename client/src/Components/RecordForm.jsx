@@ -30,20 +30,24 @@ const RecordForm = ({ addRecord }) => {
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form">
         <div className="form-group">
-          <input type="number" name="quantity" value={record.quantity} onChange={handleChange} placeholder="Quantity" required />
+          <label htmlFor="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" value={record.quantity} onChange={handleChange} placeholder="Quantity" required />
         </div>
         <div className="form-group">
-          <input type="number" name="amount" value={record.amount} onChange={handleChange} placeholder="Amount" required />
+          <label htmlFor="amount">Amount</label>
+          <input type="number" id="amount" name="amount" value={record.amount} onChange={handleChange} placeholder="Amount" required />
         </div>
         <div className="form-group">
-          <select name="actionType" value={record.actionType} onChange={handleChange} required>
+          <label htmlFor="actionType">Action Type</label>
+          <select id="actionType" name="actionType" value={record.actionType} onChange={handleChange} required>
             <option value="Type1">Type-1</option>
             <option value="Type2">Type-2</option>
             <option value="Type3">Type-3</option>
           </select>
         </div>
         <div className="form-group">
-          <select name="actionName" value={record.actionName} onChange={handleChange} required>
+          <label htmlFor="actionName">Action Name</label>
+          <select id="actionName" name="actionName" value={record.actionName} onChange={handleChange} required>
             <option value="Action1">Action-1</option>
             <option value="Action2">Action-2</option>
             <option value="Action3">Action-3</option>
@@ -52,7 +56,8 @@ const RecordForm = ({ addRecord }) => {
           </select>
         </div>
         <div className="form-group">
-          <select name="Impact" value={record.Impact} onChange={handleChange} required>
+          <label htmlFor="Impact">Impact</label>
+          <select id="Impact" name="Impact" value={record.Impact} onChange={handleChange} required>
             <option value="Low">Low</option>
             <option value="Mid">Mid</option>
             <option value="High">High</option>

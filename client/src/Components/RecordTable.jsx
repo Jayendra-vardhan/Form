@@ -1,8 +1,8 @@
 import React from 'react';
-
+import '../App.css'; 
 const RecordTable = ({ records, updateStatus, isAdmin }) => {
   return (
-    <table>
+    <table className="styled-table">
       <thead>
         <tr>
           <th>ID</th>
