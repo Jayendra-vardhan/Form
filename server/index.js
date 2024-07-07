@@ -73,7 +73,7 @@ app.put('/records/:id', async (req, res) => {
   try {
     const updatedRecord = await Record.findOneAndUpdate(
       { id: id },
-      { quantity, amount, postingYear, postingMonth, actionType, actionName, status, Impact,  timestamp: Date.now() },
+      { quantity, amount, postingYear, postingMonth, actionType, actionName, status, Impact, timestamp: Date.now() },
       { new: true }
     );
     res.status(200).json(updatedRecord);
