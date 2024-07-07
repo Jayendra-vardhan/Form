@@ -63,6 +63,7 @@
 
 .mainScreen{
   display: flex;
+  gap: 15px;
 }
 
 .form-container {
@@ -70,7 +71,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 40vh;
+  width: 50vh;
 }
 
 .form {
@@ -100,6 +101,7 @@
 .form-button {
   width: 100%;
   padding: 10px;
+  margin: 2px;
   background-color: #007bff;
   color: white;
   border: none;
@@ -117,6 +119,7 @@
   border-collapse: collapse;
   border: 1px solid #ddd;
   font-size: 14px;
+  margin: 15px;
 }
 
 .styled-table th, .styled-table td {
@@ -136,4 +139,9 @@
 
 .styled-table tbody tr:hover {
   background-color: #f1f1f1;
+}
+
+.chart-container {
+  max-width: 600px;
+  margin: 20px auto; 
 }

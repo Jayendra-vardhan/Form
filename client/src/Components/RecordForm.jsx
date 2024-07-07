@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Chart from './Chart';
 import '../App.css'; 
 
 const RecordForm = ({ addRecord }) => {
@@ -10,6 +11,12 @@ const RecordForm = ({ addRecord }) => {
     Impact: ''
   });
 
+  const [showChart, setShowChart] = useState(false);
+
+  const toggleChart = () => {
+    setShowChart(!showChart);
+  };
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRecord({ ...record, [name]: value });
@@ -19,7 +26,7 @@ const RecordForm = ({ addRecord }) => {
     e.preventDefault();
     const newRecord = {
       ...record,
-      status: 'in progress',
+      status: 'pending',
       postingYear: new Date().getFullYear(),
       postingMonth: new Date().toLocaleString('default', { month: 'long' })
     };
@@ -65,6 +72,8 @@ const RecordForm = ({ addRecord }) => {
         </div>
         <div className="form-group">
           <button type="submit" className="form-button">Add Record</button>
+          <button type="button" onClick={toggleChart} className="form-button">{showChart ? 'Hide Chart' : 'Show Chart'}</button>
+
         </div>
       </form>
     </div>
