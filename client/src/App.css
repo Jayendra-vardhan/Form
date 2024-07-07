@@ -1,0 +1,71 @@
+.App {
+  text-align: center;
+  background-image: repeating-linear-gradient(284deg, transparent 0px, transparent 1px,rgb(251,251,251) 1px, rgb(251,251,251) 3px),repeating-linear-gradient(14deg, transparent 0px, transparent 1px,rgb(251,251,251) 1px, rgb(251,251,251) 3px),linear-gradient(90deg, rgb(222,222,222),rgb(222,222,222));
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+body {
+  background-image: repeating-linear-gradient(284deg, transparent 0px, transparent 1px, rgb(251, 251, 251) 1px, rgb(251, 251, 251) 3px),
+                    repeating-linear-gradient(14deg, transparent 0px, transparent 1px, rgb(251, 251, 251) 1px, rgb(251, 251, 251) 3px),
+                    linear-gradient(90deg, rgb(222, 222, 222), rgb(222, 222, 222));
+  background-size: 50px 50px;
+  background-attachment: fixed;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.Button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  size: 16px ; 
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  overflow: hidden;
+  
+}
