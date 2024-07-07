@@ -66,6 +66,10 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   font-weight: 700;
-  overflow: hidden;
-  
+  overflow: hidden;  
+}
+
+.mainScreen{
+  display: flex;
+  gap: 10rem;
 }

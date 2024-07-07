@@ -34,8 +34,8 @@ const App = () => {
   }
 
   return (
-    <div>
-      {role === 'admin' && <RecordForm addRecord={addRecord} />}
+    <div className='mainScreen'>
+      <RecordForm addRecord={addRecord} />
       <RecordTable records={records} updateStatus={updateStatus} isAdmin={role === 'admin'} />
     </div>
   );

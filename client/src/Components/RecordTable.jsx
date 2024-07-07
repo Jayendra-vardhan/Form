@@ -1,4 +1,5 @@
 import React from 'react';
+import './recordtable.scss'
 
 const RecordTable = ({ records, updateStatus, isAdmin }) => {
   return (

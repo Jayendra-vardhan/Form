@@ -7,12 +7,10 @@ const RecordSchema = new mongoose.Schema({
   postingYear: { type: Number, required: true },
   postingMonth: { type: String, required: true },
   actionType: { type: String, required: true },
-  actionNumber: { type: String, required: true },
   actionName: { type: String, required: true },
   status: { type: String, required: true },
   Impact: { type: String, required: true }
 });
 
-const record = mongoose.model('Record', RecordSchema);
-
-exports.record = record;
+const Record = mongoose.model('Record', RecordSchema);
+module.exports = Record;

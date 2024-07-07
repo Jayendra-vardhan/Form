@@ -2,12 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const connectDB = require('./database');
-import { Record } from './models/Record';
-const Counter = require('./models/counter');
+const Record = require('./models/Record');
+const Counter = require('./models/Counter');
 
 const app = express();
 app.use(cors({
-  origin: ["http://localhost:3000"],
+  origin: "http://localhost:3000", 
   methods: ["POST", "GET", "PUT", "DELETE", "UPDATE"],
   credentials: true,
 }));
@@ -40,26 +40,26 @@ app.get('/records', async (req, res) => {
 });
 
 app.post('/records', async (req, res) => {
-  const { quantity, amount, actionType, actionNumber, actionName, status, Impact } = req.body;
+  const body = req.body;
   const postingYear = new Date().getFullYear();
   const postingMonth = new Date().toLocaleString('default', { month: 'long' });
 
   try {
     const id = await getNextSequenceValue('recordId');
     const newRecord = new Record({
-      id,
-      quantity,
-      amount,
-      postingYear,
-      postingMonth,
-      actionType,
-      actionNumber,
-      actionName,
-      status,
-      Impact
+      id: id,
+      quantity: body.quantity,
+      amount: body.amount,
+      postingYear: postingYear,
+      postingMonth: postingMonth,
+      actionType: body.actionType,
+      actionName: body.actionName,
+      status: body.status,
+      Impact: body.Impact
     });
     const record = await newRecord.save();
     res.status(201).json(record);
+    console.log(record)
   } catch (err) {
     console.error(`Error creating record: ${err.message}`);
     res.status(500).send(`Error creating record: ${err.message}`);
@@ -68,12 +68,12 @@ app.post('/records', async (req, res) => {
 
 app.put('/records/:id', async (req, res) => {
   const { id } = req.params;
-  const { quantity, amount, postingYear, postingMonth, actionType, actionNumber, actionName, status, Impact } = req.body;
+  const { quantity, amount, postingYear, postingMonth, actionType, actionName, status, Impact } = req.body;
 
   try {
     const updatedRecord = await Record.findOneAndUpdate(
       { id: id },
-      { quantity, amount, postingYear, postingMonth, actionType, actionNumber, actionName, status, Impact },
+      { quantity, amount, postingYear, postingMonth, actionType, actionName, status, Impact },
       { new: true }
     );
     res.status(200).json(updatedRecord);

@@ -6,8 +6,7 @@ const RecordForm = ({ addRecord }) => {
     amount: '',
     actionType: '',
     actionName: '',
-    Impact: '',
-    status: 'Pending'
+    Impact: ''
   });
 
   const handleChange = (e) => {
@@ -19,7 +18,7 @@ const RecordForm = ({ addRecord }) => {
     e.preventDefault();
     const newRecord = {
       ...record,
-      id: Date.now(),
+      status: 'in progress',
       postingYear: new Date().getFullYear(),
       postingMonth: new Date().toLocaleString('default', { month: 'long' })
     };
@@ -27,7 +26,8 @@ const RecordForm = ({ addRecord }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+      <form onSubmit={handleSubmit}>
       <input type="number" name="quantity" value={record.quantity} onChange={handleChange} placeholder="Quantity" required />
       <input type="number" name="amount" value={record.amount} onChange={handleChange} placeholder="Amount" required />
       <select name="actionType" value={record.actionType} onChange={handleChange}>
@@ -49,6 +49,7 @@ const RecordForm = ({ addRecord }) => {
       </select>
       <button type="submit">Add Record</button>
     </form>
+    </div>
   );
 };
 
