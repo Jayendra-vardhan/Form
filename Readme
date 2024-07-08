@@ -1,0 +1,12 @@
+Docker-
+        "docker-compose build" to build docker images
+        "docker-compose up" to run the docker containers
+
+without Docker-
+        client-
+            Run "npm install" to install package dependency then,
+            run "npm start" to start react server.
+        
+        server-
+            Run "npm install" to install package dependency then,
+            run "node index.js" to start the server.
