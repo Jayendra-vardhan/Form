@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const connectDB = require('./database');
 const Record = require('./models/Record');
-const Counter = require('./models/Counter');
+const Counter = require('./models/counter');
 
 const app = express();
 app.use(cors({
