@@ -10,13 +10,13 @@ const App = () => {
   const [role, setRole] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/records').then(response => {
+    axios.get('http://localhost:5001/records').then(response => {
       setRecords(response.data);
     });
   }, []);
 
   const addRecord = (newRecord) => {
-    axios.post('http://localhost:5000/records', newRecord)
+    axios.post('http://localhost:5001/records', newRecord)
     .then(response => {
         setRecords([response.data, ...records]);
       })
@@ -28,7 +28,7 @@ const App = () => {
   const updateStatus = (id, status) => {
     const updatedRecord = records.find(record => record.id === id);
     updatedRecord.status = status;
-    axios.put(`http://localhost:5000/records/${id}`, updatedRecord).then(response => {
+    axios.put(`http://localhost:5001/records/${id}`, updatedRecord).then(response => {
       setRecords(records.map(record => record.id === id ? response.data : record));
     });
   };
