@@ -10,13 +10,13 @@ const App = () => {
   const [role, setRole] = useState('');
 
   useEffect(() => {
-    axios.get('https://form-server-shzd.onrender.com/records').then(response => {
+    axios.get('https://form-server-shzd.onrender.com:5005/records').then(response => {
       setRecords(response.data);
     });
   }, []);
 
   const addRecord = (newRecord) => {
-    axios.post('https://form-server-shzd.onrender.com/records', newRecord)
+    axios.post('https://form-server-shzd.onrender.com:5005/records', newRecord)
     .then(response => {
         setRecords([response.data, ...records]);
       })
@@ -28,7 +28,7 @@ const App = () => {
   const updateStatus = (id, status) => {
     const updatedRecord = records.find(record => record.id === id);
     updatedRecord.status = status;
-    axios.put(`https://form-server-shzd.onrender.com/records/${id}`, updatedRecord).then(response => {
+    axios.put(`https://form-server-shzd.onrender.com:5005/records/${id}`, updatedRecord).then(response => {
       setRecords(records.map(record => record.id === id ? response.data : record));
     });
   };
