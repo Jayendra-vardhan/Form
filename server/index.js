@@ -7,7 +7,7 @@ const Counter = require('./models/Counter');
 
 const app = express();
 app.use(cors({
-  origin: "http://localhost:3000", 
+  origin: ["http://localhost:3000","https://form-clientservice.vercel.app/"], 
   methods: ["POST", "GET", "PUT", "DELETE", "UPDATE"],
   credentials: true,
 }));
