@@ -10,8 +10,13 @@ const App = () => {
   const [role, setRole] = useState('');
 
   useEffect(() => {
-    axios.get('https://form-server-shzd.onrender.com/records').then(response => {
-      setRecords(response.data);
+    axios.get('https://form-server-shzd.onrender.com/records')
+    .then(response => {
+      const sortedRecords = response.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      setRecords(sortedRecords);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the records!", error);
     });
   }, []);
 
@@ -28,9 +33,15 @@ const App = () => {
   const updateStatus = (id, status) => {
     const updatedRecord = records.find(record => record.id === id);
     updatedRecord.status = status;
-    axios.put(`https://form-server-shzd.onrender.com/records/${id}`, updatedRecord).then(response => {
-      setRecords(records.map(record => record.id === id ? response.data : record));
-    });
+    axios.put(`https://form-server-shzd.onrender.com/records/${id}`, updatedRecord)
+      .then(response => {
+        const updatedRecords = records.map(record => record.id === id ? response.data : record);
+        const sortedRecords = updatedRecords.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        setRecords(sortedRecords);
+      })
+      .catch(error => {
+        console.error("There was an error updating the record status!", error);
+      });
   };
 
   if (!role) {

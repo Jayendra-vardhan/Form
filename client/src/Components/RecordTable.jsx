@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'; 
+import '../App.css';
 const RecordTable = ({ records, updateStatus, isAdmin }) => {
   return (
     <table className="styled-table">
