@@ -6,7 +6,7 @@ pipeline{
             steps{
                 echo 'building the Form application'
             }
-        }
+        } 
          stage("test"){
             steps{
                 echo 'testing the Form application'
